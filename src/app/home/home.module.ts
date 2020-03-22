@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { ComponentsModule } from '../components/components.module';
+import { HttpClientModule } from '@angular/common/http';
+import { PinchZoomModule } from 'ngx-pinch-zoom';
 
 @NgModule({
   imports: [
@@ -16,7 +19,10 @@ import { HomePage } from './home.page';
         path: '',
         component: HomePage
       }
-    ])
+    ]),
+    ComponentsModule,
+    HttpClientModule,
+    PinchZoomModule,
   ],
   declarations: [HomePage]
 })

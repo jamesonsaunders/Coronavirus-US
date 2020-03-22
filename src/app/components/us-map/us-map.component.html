@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
+  <rect [attr.fill]="fillStateColors['MA']" [attr.stroke]="strokeColor" x="895" y="130" width="30" height="17" id="MA_1" (click)="onUsMapClick('MA')"/>
+  <rect [attr.fill]="fillStateColors['RI']" [attr.stroke]="strokeColor" x="890" y="182" width="21" height="17" id="RI_1" (click)="onUsMapClick('RI')"/>
+  <rect [attr.fill]="fillStateColors['CT']" [attr.stroke]="strokeColor" x="869" y="196" width="21" height="18" id="CT_1" (click)="onUsMapClick('CT')"/>
+  <rect [attr.fill]="fillStateColors['NJ']" [attr.stroke]="strokeColor" x="851" y="216" width="21" height="18" id="NJ_1" (click)="onUsMapClick('NJ')"/>
+  <rect [attr.fill]="fillStateColors['DE']" [attr.stroke]="strokeColor" x="843" y="240" width="24" height="18" id="DE_1" (click)="onUsMapClick('DE')"/>
+  <rect [attr.fill]="fillStateColors['MD']" [attr.stroke]="strokeColor" x="843" y="261" width="30" height="18" id="MD_1" (click)="onUsMapClick('MD')"/>
+  <rect [attr.fill]="fillStateColors['VT']" [attr.stroke]="strokeColor" x="817" y="82" width="27" height="18" id="VT_1" (click)="onUsMapClick('VT')"/>
+  <rect [attr.fill]="fillStateColors['NH']" [attr.stroke]="strokeColor" x="837" y="66" width="27" height="18" id="NH_1" (click)="onUsMapClick('NH')"/>
+  <rect [attr.fill]="fillStateColors['HI']" [attr.stroke]="strokeColor" x="361" y="562" width="24" height="18" id="HI_1" (click)="onUsMapClick('HI')"/>
+  <g>
+      <path 
+          *ngFor="let coordinate of coordinates;let i = index"
+          [attr.id]="coordinate.id"
+          [attr.d]="coordinate.d"
+          [attr.fill]="fillStateColors[coordinate.id]"
+          [attr.stroke]="strokeColor"            
+          (click)="onUsMapClick(coordinate.id)"
+      >
+      </path>
+      <text style="cursor: pointer;" x="657" y="405" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('AL')"><tspan dy="6.5">AL</tspan></text>
+      <text style="cursor: pointer;" x="115" y="490" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('AK')"><tspan dy="6.5">AK</tspan></text>
+      <text style="cursor: pointer;" x="205" y="355" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('AZ')"><tspan dy="6.5">AZ</tspan></text>
+      <text style="cursor: pointer;" x="547" y="367" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('AR')"><tspan dy="6.5">AR</tspan></text>
+      <text style="cursor: pointer;" x="70" y="260" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('CA')"><tspan dy="6.5">CA</tspan></text>
+      <text style="cursor: pointer;" x="322" y="273" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('CO')"><tspan dy="6.5">CO</tspan></text>
+      <text style="cursor: pointer;" x="880" y="205" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('CT')"><tspan dy="6.5">CT</tspan></text>
+      <text style="cursor: pointer;" x="855" y="248" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('DE')"><tspan dy="6.5">DE</tspan></text>
+      <text style="cursor: pointer;" x="765" y="500" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('FL')"><tspan dy="6.5">FL</tspan></text>
+      <text style="cursor: pointer;" x="715" y="400" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('GA')"><tspan dy="6.5">GA</tspan></text>
+      <text style="cursor: pointer;" x="374" y="570" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('HI')"><tspan dy="6.5">HI</tspan></text>
+      <text style="cursor: pointer;" x="195" y="145" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('ID')"><tspan dy="6.5">ID</tspan></text>
+      <text style="cursor: pointer;" x="598" y="253" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('IL')"><tspan dy="6.5">IL</tspan></text>
+      <text style="cursor: pointer;" x="645" y="253" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('IN')"><tspan dy="6.5">IN</tspan></text>
+      <text style="cursor: pointer;" x="525" y="213" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('IA')"><tspan dy="6.5">IA</tspan></text>
+      <text style="cursor: pointer;" x="445" y="290" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('KS')"><tspan dy="6.5">KS</tspan></text>
+      <text style="cursor: pointer;" x="675" y="300" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('KY')"><tspan dy="6.5">KY</tspan></text>
+      <text style="cursor: pointer;" x="549" y="447" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('LA')"><tspan dy="6.5">LA</tspan></text>
+      <text style="cursor: pointer;" x="892" y="80" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('ME')"><tspan dy="6.5">ME</tspan></text>
+      <text style="cursor: pointer;" x="858" y="270" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('MD')"><tspan dy="6.5">MD</tspan></text>
+      <text style="cursor: pointer;" x="910" y="137" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('MA')"><tspan dy="6.5">MA</tspan></text>
+      <text style="cursor: pointer;" x="658" y="174" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('MI')"><tspan dy="6.5">MI</tspan></text>
+      <text style="cursor: pointer;" x="505" y="127" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('MN')"><tspan dy="6.5">MN</tspan></text>
+      <text style="cursor: pointer;" x="603" y="410" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('MS')"><tspan dy="6.5">MS</tspan></text>
+      <text style="cursor: pointer;" x="540" y="288" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('MO')"><tspan dy="6.5">MO</tspan></text>
+      <text style="cursor: pointer;" x="287" y="90" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('MT')"><tspan dy="6.5">MT</tspan></text>
+      <text style="cursor: pointer;" x="424" y="226" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('NE')"><tspan dy="6.5">NE</tspan></text>
+      <text style="cursor: pointer;" x="140" y="235" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('NV')"><tspan dy="6.5">NV</tspan></text>
+      <text style="cursor: pointer;" x="850" y="75" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('NH')"><tspan dy="6.5">NH</tspan></text>
+      <text style="cursor: pointer;" x="860" y="224" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('NJ')"><tspan dy="6.5">NJ</tspan></text>
+      <text style="cursor: pointer;" x="304" y="369" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('NM')"><tspan dy="6.5">NM</tspan></text>
+      <text style="cursor: pointer;" x="816" y="151" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('NY')"><tspan dy="6.5">NY</tspan></text>
+      <text style="cursor: pointer;" x="787" y="327" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('NC')"><tspan dy="6.5">NC</tspan></text>
+      <text style="cursor: pointer;" x="420" y="97" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('ND')"><tspan dy="6.5">ND</tspan></text>
+      <text style="cursor: pointer;" x="700" y="240" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('OH')"><tspan dy="6.5">OH</tspan></text>
+      <text style="cursor: pointer;" x="460" y="358" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('OK')"><tspan dy="6.5">OK</tspan></text>
+      <text style="cursor: pointer;" x="103" y="123" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('OR')"><tspan dy="6.5">OR</tspan></text>
+      <text style="cursor: pointer;" x="783" y="210" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('PA')"><tspan dy="6.5">PA</tspan></text>
+      <text style="cursor: pointer;" x="900" y="190" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('RI')"><tspan dy="6.5">RI</tspan></text>
+      <text style="cursor: pointer;" x="761" y="370" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('SC')"><tspan dy="6.5">SC</tspan></text>
+      <text style="cursor: pointer;" x="420" y="161" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('SD')"><tspan dy="6.5">SD</tspan></text>
+      <text style="cursor: pointer;" x="656" y="339" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('TN')"><tspan dy="6.5">TN</tspan></text>
+      <text style="cursor: pointer;" x="429" y="450" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('TX')"><tspan dy="6.5">TX</tspan></text>
+      <text style="cursor: pointer;" x="224" y="254" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('UT')"><tspan dy="6.5">UT</tspan></text>
+      <text style="cursor: pointer;" x="830" y="90" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('VT')"><tspan dy="6.5">VT</tspan></text>
+      <text style="cursor: pointer;" x="788" y="282" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('VA')"><tspan dy="6.5">VA</tspan></text>
+      <text style="cursor: pointer;" x="125" y="50" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('WA')"><tspan dy="6.5">WA</tspan></text>
+      <text style="cursor: pointer;" x="742" y="269" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('WV')"><tspan dy="6.5">WV</tspan></text>
+      <text style="cursor: pointer;" x="578" y="156" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('WI')"><tspan dy="6.5">WI</tspan></text>
+      <text style="cursor: pointer;" x="300" y="183" text-anchor="middle" stroke="none" [attr.fill]="fillColor" (click)="onUsMapClick('WY')"><tspan dy="6.5">WY</tspan></text>
+      <line xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#C0C0C0" stroke-width="2" x1="830" y1="93" x2="845" y2="120"/>
+      <line xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#C0C0C0" stroke-width="2" x1="850" y1="78" x2="865" y2="120"/>
+      <line xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#C0C0C0" stroke-width="2" x1="898" y1="140" x2="875" y2="155"/>
+      <line xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#C0C0C0" stroke-width="2" x1="892" y1="188" x2="878" y2="173"/>
+      <line xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#C0C0C0" stroke-width="2" x1="880" y1="198" x2="858" y2="175"/>
+      <line xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#C0C0C0" stroke-width="2" x1="840" y1="215" x2="850" y2="220"/>
+      <line xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#C0C0C0" stroke-width="2" x1="828" y1="248" x2="842" y2="249"/>
+      <line xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#C0C0C0" stroke-width="2" x1="802" y1="245" x2="845" y2="269"/>
+      <g id="DC">
+          <path id="DC1" fill="#D3D3D3" d="M801.8,253.8 l-1.1-1.6 -1-0.8 1.1-1.6 2.2,1.5z"/>
+          <circle id="DC2" fill="#D3D3D3" stroke="#FFFFFF" stroke-width="1.5" cx="801.3" cy="251.8" r="5" opacity="0"/> <!-- Set opacity to "0" to hide DC circle -->
+      </g>        
+  </g>
+</svg>

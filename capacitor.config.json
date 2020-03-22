@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "coronavirus-usa",
+  "appId": "com.jamesonsaunders.coronavirususa",
+  "appName": "Corona USA Map",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
