@@ -1,0 +1,7 @@
+{
+  "name": "coronavirus-usa",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
