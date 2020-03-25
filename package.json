@@ -10,7 +10,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:ios": "ng build && npx cap copy ios"
+    "build:ios": "ng build && npx cap copy ios",
+    "publish:prod:web": "ng build && firebase deploy --only hosting"
   },
   "private": true,
   "dependencies": {
