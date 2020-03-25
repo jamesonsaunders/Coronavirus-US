@@ -14,7 +14,7 @@ export class HomePage {
   maxConfirmed = 0;
   maxDeaths = 0;
   metric = 'confirmed';
-  stats = [];
+  stats = {};
   lastUpdated = null;
 
   constructor(
@@ -40,18 +40,28 @@ export class HomePage {
       params: new HttpParams().set("country", "us"),
     }).toPromise().then((results: any) => {
       console.log(results);
-      this.stats = results.data.covid19Stats;
+      let cityStats = results.data.covid19Stats;
+
+      this.stats = {};
+      cityStats.forEach(stat => {
+        if (!this.stats[stat.province])
+          this.stats[stat.province] = stat;
+        else {
+          this.stats[stat.province].confirmed += stat.confirmed;
+          this.stats[stat.province].recovered += stat.recovered;
+          this.stats[stat.province].deaths += stat.deaths;
+        }
+      });
+
       this.lastUpdated = new Date(results.data.lastChecked);
 
-
-      this.stats.forEach(stat => {
-        // console.log(stat);
-        if (stat.confirmed > this.maxConfirmed)
-          this.maxConfirmed = stat.confirmed;
-        if (stat.recovered > this.maxRecovered)
-          this.maxRecovered = stat.recovered;
-        if (stat.deaths > this.maxDeaths)
-          this.maxDeaths = stat.deaths;
+      this.usMap.states.forEach(state => {
+        if (this.stats[state.name].confirmed > this.maxConfirmed)
+          this.maxConfirmed = this.stats[state.name].confirmed;
+        if (this.stats[state.name].recovered > this.maxRecovered)
+          this.maxRecovered = this.stats[state.name].recovered;
+        if (this.stats[state.name].deaths > this.maxDeaths)
+          this.maxDeaths = this.stats[state.name].deaths;
       });
 
       console.log(`maxConfirmed: ${this.maxConfirmed}`);
@@ -69,23 +79,23 @@ export class HomePage {
   }
 
   computeColors() {
-    this.stats.forEach(stat => {
-      let state = this.usMap.states.find(s => s.name === stat.province);
+    this.usMap.states.forEach(state => {
       if (!state)
         return;
 
       if (this.metric === 'confirmed') {
-        let alpha = (stat.confirmed / this.maxConfirmed);
-        this.fillStateColors[state.abbreviation] = `rgba(255, 0, 0, ${alpha})`;
+        let alpha = (this.stats[state.name].confirmed / this.maxConfirmed);
+        this.fillStateColors[state.abbreviation] = alpha ? `rgba(255, 0, 0, ${alpha})` : 'white';
+        // console.log(`${state.abbreviation}: ${this.stats[state.name].confirmed}/${this.maxConfirmed} = ${this.stats[state.name].confirmed / this.maxConfirmed}`);
       }
       else if (this.metric === 'recovered') {
-        let alpha = (stat.recovered / this.maxRecovered);
-        this.fillStateColors[state.abbreviation] = `rgba(0, 255, 0, ${alpha})`;
-        console.log(`${state.abbreviation}: ${stat.recovered}/${this.maxRecovered} = ${stat.recovered / this.maxRecovered}`);
+        let alpha = (this.stats[state.name].recovered / this.maxRecovered);
+        this.fillStateColors[state.abbreviation] = alpha ? `rgba(0, 255, 0, ${alpha})` : 'white';
+        // console.log(`${state.abbreviation}: ${this.stats[state.name].recovered}/${this.maxRecovered} = ${this.stats[state.name].recovered / this.maxRecovered}`);
       }
       else if (this.metric === 'deaths') {
-        let alpha = (stat.deaths / this.maxDeaths);
-        this.fillStateColors[state.abbreviation] = `rgba(255, 0, 255, ${alpha})`;
+        let alpha = (this.stats[state.name].deaths / this.maxDeaths);
+        this.fillStateColors[state.abbreviation] = alpha ? `rgba(255, 0, 255, ${alpha})` : 'white';
       }
     });
   }
@@ -93,7 +103,7 @@ export class HomePage {
   onMapClick(abbreviation) {
     console.log(abbreviation);
     let state = this.usMap.states.find(state => state.abbreviation === abbreviation['state-abbr']);
-    this.presentAlert(this.stats.find(stat => stat.province === state.name));
+    this.presentAlert(this.stats[state.name]);
   }
 
   async presentAlert(stat) {
