@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Coronavirus ({{lastUpdated | date}})
+      {{lastUpdated | date}}
     </ion-title>
   </ion-toolbar>
   <ion-toolbar>
     <ion-item lines="none">
-      <ion-label>Metric</ion-label>
+      <ion-label>Coronavirus</ion-label>
       <ion-select [ngModel]="metric" (ngModelChange)="metricChanged($event)" okText="Okay" cancelText="Dismiss">
         <ion-select-option value="confirmed">Confirmed</ion-select-option>
         <ion-select-option value="recovered">Recovered</ion-select-option>

@@ -107,9 +107,10 @@ export class HomePage {
   }
 
   async presentAlert(stat) {
+    console.log(stat);
     const alert = await this.alertCtrl.create({
       header: stat.province,
-      subHeader: `Last updated: ${new Date(stat.lastUpdate).toLocaleDateString()}`,
+      subHeader: stat.lastUpdate,
       message: `Confirmed: ${stat.confirmed}<br>
 Recovered: ${stat.recovered}<br>
 Deaths: ${stat.deaths}`,
